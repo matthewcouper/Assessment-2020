@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tmrSpaceship = new System.Windows.Forms.Timer(this.components);
+            this.tmrPlanet = new System.Windows.Forms.Timer(this.components);
             this.PnlGame = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -37,7 +38,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MnuStart = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuStop = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmrPlanet = new System.Windows.Forms.Timer(this.components);
             this.PnlGame.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +50,8 @@
             // PnlGame
             // 
             this.PnlGame.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.PnlGame.BackgroundImage = global::RotateObject.Properties.Resources.bg;
+            this.PnlGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PnlGame.Controls.Add(this.label2);
             this.PnlGame.Controls.Add(this.txtName);
             this.PnlGame.Controls.Add(this.label1);
@@ -64,7 +66,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Orator Std", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(12, 394);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 21);
@@ -81,7 +85,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Orator Std", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(330, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 39);
@@ -90,7 +96,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnuStart,
             this.MnuStop});
@@ -103,6 +109,7 @@
             // MnuStart
             // 
             this.MnuStart.Font = new System.Drawing.Font("Orator Std", 8.999999F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MnuStart.ForeColor = System.Drawing.SystemColors.Control;
             this.MnuStart.Name = "MnuStart";
             this.MnuStart.Size = new System.Drawing.Size(55, 20);
             this.MnuStart.Text = "Start";
@@ -111,6 +118,7 @@
             // MnuStop
             // 
             this.MnuStop.Font = new System.Drawing.Font("Orator Std", 8.999999F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MnuStop.ForeColor = System.Drawing.SystemColors.Control;
             this.MnuStop.Name = "MnuStop";
             this.MnuStop.Size = new System.Drawing.Size(48, 20);
             this.MnuStop.Text = "Stop";

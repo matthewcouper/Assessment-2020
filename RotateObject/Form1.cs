@@ -100,16 +100,6 @@ namespace RotateObject
         {
             //get the graphics used to paint on the Form control
             g = e.Graphics;
-            //Draw the spaceship
-            spaceship.drawSpaceship(g);
-
-            foreach (Missile m in missiles)
-            {
-                m.drawMissile(g);
-                m.moveMissile(g);
-
-            }
-
             foreach (Planet p in planets)
             {
                 p.draw(g);//Draw the planet
@@ -121,7 +111,17 @@ namespace RotateObject
                     p.y = -20;
                 }
 
+            }//Draw the spaceship
+            spaceship.drawSpaceship(g);
+
+            foreach (Missile m in missiles)
+            {
+                m.drawMissile(g);
+                m.moveMissile(g);
+
             }
+
+            
         }
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
