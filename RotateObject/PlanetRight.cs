@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace RotateObject
 {
-    class Planet
+    class PlanetRight
     {
 
         // declare fields to use in the class
@@ -18,9 +18,9 @@ namespace RotateObject
         public Rectangle planetRec;//variable for a rectangle to place our image in
 
         //Create a constructor (initialises the values of the fields)
-        public Planet(int displacement)
+        public PlanetRight(int displacement)
         {
-            x = -30;
+            x = 600;
             y = displacement;
             width = 20;
             height = 20;
@@ -37,7 +37,7 @@ namespace RotateObject
         }
         public void movePlanet(Graphics g)
         {
-            x += 5;
+            x += -5;
             planetRec.Location = new Point(x, y);
 
         }

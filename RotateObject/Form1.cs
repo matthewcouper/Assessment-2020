@@ -28,6 +28,10 @@ namespace RotateObject
         //declare a list  missiles from the Missile class
         List<Missile> missiles = new List<Missile>();
         List<Planet> planets = new List<Planet>();
+        List<PlanetDown> planets2 = new List<PlanetDown>();
+        List<PlanetRight> planets3 = new List<PlanetRight>();
+        List<PlanetUp> planets4 = new List<PlanetUp>();
+
 
 
         public Form1()
@@ -40,6 +44,10 @@ namespace RotateObject
             {
                 int displacement = 10 + (i * 70);
                 planets.Add(new Planet(displacement));
+                planets2.Add(new PlanetDown(displacement));
+                planets3.Add(new PlanetRight(displacement));
+                planets4.Add(new PlanetUp(displacement));
+
             }
         }
 
@@ -100,17 +108,36 @@ namespace RotateObject
         {
             //get the graphics used to paint on the Form control
             g = e.Graphics;
-            //Draw the spaceship
-            spaceship.drawSpaceship(g);
 
-            foreach (Missile m in missiles)
+            foreach (PlanetRight p in planets3)
             {
-                m.drawMissile(g);
-                m.moveMissile(g);
+                p.draw(g);//Draw the planet
+                p.movePlanet(g);//move the planet
+
+                //if the planet reaches the bottom of the form relocate it back to the top
+                if (p.x <= -30)
+                {
+                    p.x = 600;
+                }
 
             }
 
+
             foreach (Planet p in planets)
+            {
+                p.draw(g);//Draw the planet
+                p.movePlanet(g);//move the planet
+
+                //if the planet reaches the bottom of the form relocate it back to the top
+                if (p.x >= ClientSize.Width)
+                {
+                    p.x = -30;
+                }
+
+            }
+
+            
+            foreach (PlanetDown p in planets2)
             {
                 p.draw(g);//Draw the planet
                 p.movePlanet(g);//move the planet
@@ -122,7 +149,106 @@ namespace RotateObject
                 }
 
             }
+
+
+            foreach (PlanetUp p in planets4)
+            {
+                p.draw(g);//Draw the planet
+                p.movePlanet(g);//move the planet
+
+                //if the planet reaches the bottom of the form relocate it back to the top
+                if (p.y <= -15)
+                {
+                    p.y = 500;
+                }
+
+            }
+
+
+            //Draw the spaceship
+            spaceship.drawSpaceship(g);
+
+            foreach (Missile m in missiles)
+            {
+                m.drawMissile(g);
+                m.moveMissile(g);
+
+            }
         }
+
+        private void tmrShoot_Tick(object sender, EventArgs e)
+        {
+
+            foreach (Planet p in planets)
+            {
+
+                foreach (Missile m in missiles)
+                {
+                    if (p.planetRec.IntersectsWith(m.missileRec))
+                    {
+                        missiles.Remove(m);
+                        break;
+
+
+                        p.x = -30;
+                    }
+                }
+
+            }
+
+            foreach (PlanetDown p in planets2)
+            {
+
+                foreach (Missile m in missiles)
+                {
+                    if (p.planetRec.IntersectsWith(m.missileRec))
+                    {
+                        missiles.Remove(m);
+                        break;
+
+                        p.y = -20;
+                    }
+                }
+
+            }
+
+            foreach(PlanetRight p in planets3)
+            {
+
+                foreach (Missile m in missiles)
+                {
+                    if (p.planetRec.IntersectsWith(m.missileRec))
+                    {
+                        missiles.Remove(m);
+                        break;
+
+                        p.x = 600;
+                    }
+                }
+
+            }
+
+            foreach (PlanetUp p in planets4)
+            {
+
+                foreach (Missile m in missiles)
+                {
+                    if (p.planetRec.IntersectsWith(m.missileRec))
+                    {
+                        missiles.Remove(m);
+                        break;
+
+                        p.y = 500;
+                    }
+                }
+
+            }
+
+
+            this.Invalidate();
+
+        }
+
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Left) { turnLeft = false; }
@@ -135,6 +261,7 @@ namespace RotateObject
 
         private void MnuStart_Click(object sender, EventArgs e)
         {
+            txtName.Enabled = false;
             tmrSpaceship.Enabled = true;
         }
 

@@ -28,8 +28,8 @@ namespace RotateObject
         {
             x = 10;
             y = 360;
-            width = 40;
-            height = 40;
+            width = 25;
+            height = 25;
             rotationAngle = 0;
             spaceship = Properties.Resources.alien1;
             spaceRec = new Rectangle(x, y, width, height);
@@ -55,28 +55,28 @@ namespace RotateObject
             if (move == "right")
             {
 
-                x -= 2;
+                x -= 3;
                 spaceRec.Location = new Point(x, y);
             }
 
             if (move == "left")
             {
 
-                x += 2;
+                x += 3;
                 spaceRec.Location = new Point(x, y);
             }
 
             if (move == "up")
             {
 
-                y -= 2;
+                y -= 3;
                 spaceRec.Location = new Point(x, y);
             }
 
             if (move == "down")
             {
 
-                y += 2;
+                y += 3;
                 spaceRec.Location = new Point(x, y);
             }
 
