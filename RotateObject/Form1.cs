@@ -245,7 +245,6 @@ namespace RotateObject
             }
 
 
-            this.Invalidate();
 
         }
 

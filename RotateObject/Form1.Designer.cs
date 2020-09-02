@@ -105,16 +105,16 @@
             // 
             this.MnuStart.Font = new System.Drawing.Font("Cooper Black", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MnuStart.Name = "MnuStart";
-            this.MnuStart.Size = new System.Drawing.Size(52, 20);
-            this.MnuStart.Text = "Start";
+            this.MnuStart.Size = new System.Drawing.Size(50, 20);
+            this.MnuStart.Text = "start";
             this.MnuStart.Click += new System.EventHandler(this.MnuStart_Click);
             // 
             // MnuStop
             // 
             this.MnuStop.Font = new System.Drawing.Font("Cooper Black", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MnuStop.Name = "MnuStop";
-            this.MnuStop.Size = new System.Drawing.Size(48, 20);
-            this.MnuStop.Text = "Stop";
+            this.MnuStop.Size = new System.Drawing.Size(46, 20);
+            this.MnuStop.Text = "stop";
             this.MnuStop.Click += new System.EventHandler(this.MnuStop_Click);
             // 
             // tmrShoot
